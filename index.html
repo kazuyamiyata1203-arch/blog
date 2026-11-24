@@ -623,6 +623,28 @@
       .eyecatch::before { content: "★ ★ ★"; display: block; color: var(--star); letter-spacing: 0.3em; font-size: 0.8rem; margin-bottom: 2px; }
       .eyecatch-photo { margin: 6px 0 20px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 26px rgba(15, 95, 99, 0.12); line-height: 0; }
       .eyecatch-photo img { display: block; width: 100%; height: auto; }
+      /* ---------- 記事タイトル横サムネイル（B案：アイキャッチはタイトル左に小さく） ---------- */
+      .article-head { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 16px; }
+      .article-head .eyecatch-thumb {
+        flex: none; width: 112px; height: 112px; margin: 2px 0 0;
+        border-radius: 14px; overflow: hidden; line-height: 0;
+        box-shadow: 0 8px 20px rgba(15, 95, 99, 0.12);
+      }
+      .article-head .eyecatch-thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .article-head-main { flex: 1; min-width: 0; }
+      .article-head-main h1 { margin-bottom: 2px; }
+      @media (max-width: 560px) {
+        .article-head { gap: 13px; }
+        .article-head .eyecatch-thumb { width: 88px; height: 88px; border-radius: 12px; }
+      }
+      /* ---------- 記事内画像の縮小表示（記事ビュー内のみ対象） ---------- */
+      .article-view .eyecatch-photo { width: 86%; max-width: 560px; margin-left: auto; margin-right: auto; }
+      .article-view .figure-img {
+        width: 86%; max-width: 560px; height: auto; aspect-ratio: auto; object-fit: contain;
+        margin-left: auto; margin-right: auto;
+      }
+      .article-view .ue-photo { width: 86%; height: auto; margin-left: auto; margin-right: auto; }
+      .article-view .step-shot img { width: 86%; height: auto; margin-left: auto; margin-right: auto; }
       .std-article .article-body {
         border-top: 6px solid var(--teal); padding: 36px 36px 40px;
         box-shadow: 0 18px 44px rgba(15, 95, 99, 0.09);
@@ -942,12 +964,12 @@
       }
       .cat-lead { color: var(--ink-soft); margin: 12px 0 20px; font-size: 0.94rem; max-width: 680px; }
       .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-      a.plan-card.art-card { padding: 0; gap: 0; overflow: hidden; }
+      a.plan-card.art-card { padding: 0; gap: 0; overflow: hidden; flex-direction: row; align-items: flex-start; }
       a.plan-card.art-card::before { display: none; }
       a.plan-card.art-card:hover { box-shadow: var(--shadow); }
-      .art-thumb { display: block; line-height: 0; background: var(--surface-2); }
-      .art-thumb img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-      .art-body { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; width: 100%; }
+      .art-thumb { flex: none; width: 112px; height: 112px; margin: 16px 0 16px 16px; border-radius: 12px; overflow: hidden; display: block; line-height: 0; background: var(--surface-2); box-shadow: 0 6px 16px rgba(15, 95, 99, 0.10); }
+      .art-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+      .art-body { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 0; }
       .art-body h3 { margin: 0; font-size: 1.1rem; font-weight: 900; line-height: 1.55; }
       .art-body p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.75; }
       @media (max-width: 900px) {
@@ -956,6 +978,8 @@
       }
       @media (max-width: 560px) {
         .cat-grid { grid-template-columns: 1fr; }
+        .art-thumb { width: 96px; height: 96px; margin: 14px 0 14px 14px; border-radius: 10px; }
+        .art-body { padding: 14px 16px 16px; }
         .cat-toc-item .cat-toc-desc { display: none; }
         .cat-toc-item { padding: 12px 14px 13px; }
         .cat-block { margin-top: 38px; }
@@ -1162,7 +1186,7 @@
         </div>
         <div class="hero">
           <div class="hero-photo">
-            <img src="img-2a53fdc1b3cf.webp" alt="玄関先でお届け物を受け渡すゾラくんとカッキーちゃん" />
+            <img src="img-9fe67c734c56.webp" alt="玄関先でお届け物を受け渡すゾラくんとカッキーちゃん" />
             <div class="hero-caption">
               <div class="hero-kicker">★ ★ ★ パパ配達員の仕事帖</div>
               <h1>ジャイロキャノピーで届ける毎日を、<br />パパが書いています</h1>
@@ -1204,7 +1228,7 @@
             <p class="cat-lead">注文で損をしないための記事です。初めての注文の流れから、紹介コードと特典、手数料の見方までまとめています。</p>
             <div class="cat-grid">
             <a class="plan-card art-card" href="#article-ue-order" data-article="article-ue-order">
-              <div class="art-thumb"><img src="img-7b08deb96eb8.webp" alt="玄関先で野菜やパンの入った買い物袋を一緒に持つパパとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-b79323de93f4.webp" alt="玄関先で野菜やパンの入った買い物袋を一緒に持つパパとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">お得に注文</span></span>
                 <h3>ウーバーイーツをお得に注文する方法</h3>
@@ -1213,7 +1237,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-rn-order" data-article="article-rn-order">
-              <div class="art-thumb"><img src="img-68d3f72e5250.webp" alt="スマホをのぞき込むパパとゾラくん、頬に手を当てて見守るカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-ca4d384ca90a.webp" alt="スマホをのぞき込むパパとゾラくん、頬に手を当てて見守るカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">お得に注文</span></span>
                 <h3>ロケットナウをお得に注文する方法</h3>
@@ -1222,7 +1246,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-rn-about" data-article="article-rn-about">
-              <div class="art-thumb"><img src="img-05cc181c6677.webp" alt="のれんの食堂の前に立つパパとゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-8f993ced0ad5.webp" alt="のれんの食堂の前に立つパパとゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">サービス紹介</span></span>
                 <h3>ロケットナウってどんなサービス？</h3>
@@ -1231,7 +1255,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-fees" data-article="article-fees">
-              <div class="art-thumb"><img src="img-2191aa3f82e6.webp" alt="テーブルの模型のハンバーガーと無地のコイン、ミニ配達バッグを指さすパパとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-0a409246b170.webp" alt="テーブルの模型のハンバーガーと無地のコイン、ミニ配達バッグを指さすパパとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">お得に注文</span></span>
                 <h3>配達料と手数料の仕組み</h3>
@@ -1240,7 +1264,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-first-order" data-article="article-first-order">
-              <div class="art-thumb"><img src="img-4b4825f49a56.webp" alt="玄関先で配達バッグを開け、初めての配達を一緒に受け取るパパとゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-2c6709554a53.webp" alt="玄関先で配達バッグを開け、初めての配達を一緒に受け取るパパとゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">初めての注文</span></span>
                 <h3>初めてのフードデリバリー、注文の流れと準備</h3>
@@ -1255,7 +1279,7 @@
             <p class="cat-lead">配達員として始める・続けるための記事です。登録の手順から、掛け持ち、1日の流れ、お金の記録まで。</p>
             <div class="cat-grid">
             <a class="plan-card art-card" href="#article-rn-start" data-article="article-rn-start">
-              <div class="art-thumb"><img src="img-dd56b3ff24ef.webp" alt="ヘルメットとスマホを持つパパと、両手を上げて応援するゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-40d4e9be520c.webp" alt="ヘルメットとスマホを持つパパと、両手を上げて応援するゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達員になる</span><span class="plan-status">登録済み</span></span>
                 <h3>ロケットナウ配達員の始め方と特典</h3>
@@ -1264,7 +1288,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-multi" data-article="article-multi">
-              <div class="art-thumb"><img src="img-684717026e09.webp" alt="バッグを見比べるパパと、スマホを持つゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-b3450a7a0b0d.webp" alt="バッグを見比べるパパと、スマホを持つゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の働き方</span></span>
                 <h3>配達サービスの掛け持ち入門</h3>
@@ -1273,7 +1297,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-day" data-article="article-day">
-              <div class="art-thumb"><img src="img-2f3cce1374b5.webp" alt="朝の玄関先で手を振って出発するパパ" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-19bca8d542b5.webp" alt="朝の玄関先で手を振って出発するパパ" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の現場</span></span>
                 <h3>配達員の1日の流れ</h3>
@@ -1282,7 +1306,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-tax" data-article="article-tax">
-              <div class="art-thumb"><img src="img-3d1b802c1bb5.webp" alt="レシートと電卓で整理するパパと、手伝うゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-47c40273bcbf.webp" alt="レシートと電卓で整理するパパと、手伝うゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-test">お金のこと</span></span>
                 <h3>確定申告と経費の基本メモ</h3>
@@ -1297,7 +1321,7 @@
             <p class="cat-lead">配達の相棒、ジャイロキャノピーの記事です。良いところも気になるところも、実際に使った体験でまとめています。</p>
             <div class="cat-grid">
             <a class="plan-card art-card" href="#article-gyro" data-article="article-gyro">
-              <div class="art-thumb"><img src="img-90860bf920de.webp" alt="屋根つき三輪バイクに乗るパパと、歩道で手を振るゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-ff60514c5f0c.webp" alt="屋根つき三輪バイクに乗るパパと、歩道で手を振るゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag">バイクのこと</span></span>
                 <h3>ジャイロキャノピーのメリット・デメリット</h3>
@@ -1306,7 +1330,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-gyro-cost" data-article="article-gyro-cost">
-              <div class="art-thumb"><img src="img-eb476b6939c6.webp" alt="工具箱を持つカッキーちゃんと、三輪バイクのタイヤを点検するパパ" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-cd844b18cce0.webp" alt="工具箱を持つカッキーちゃんと、三輪バイクのタイヤを点検するパパ" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag">バイクのこと</span></span>
                 <h3>ジャイロキャノピーの維持費</h3>
@@ -1315,16 +1339,16 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-fuel" data-article="article-fuel">
-              <div class="art-thumb"><img src="img-b2793049996c.webp" alt="ノートに記録するパパと、メーターを見るゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-6f039e0b7be2.webp" alt="ノートに記録するパパと、メーターを見るゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
-                <span class="plan-top"><span class="tag tag-test">検証</span><span class="plan-status">記録中</span></span>
-                <h3>ジャイロキャノピー 燃費7日検証</h3>
-                <p>2026年11月14日から20日までの7日間、実際の配達で燃費を記録中です。まずは記録の進め方の記事から。結果は、測り終えてから報告します。</p>
+                <span class="plan-top"><span class="tag tag-test">検証</span></span>
+                <h3>ジャイロキャノピーの燃費を7日間で検証</h3>
+                <p>配達7日分の実測燃費は47.3km/Lでした。1,218.4km走って給油25.78L、配達286回。カタログ値との比べも書きました。</p>
                 <span class="plan-read">記事を読む →</span>
               </div>
             </a>
             <a class="plan-card art-card" href="#article-minicar" data-article="article-minicar">
-              <div class="art-thumb"><img src="img-391c2a57a4f6.webp" alt="三輪バイクの無地のナンバープレートを指さすパパと、そばで見守るゾラくん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-a0b8e6a9a4e7.webp" alt="三輪バイクの無地のナンバープレートを指さすパパと、そばで見守るゾラくん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag">バイクのこと</span></span>
                 <h3>ジャイロキャノピーのミニカー登録とは</h3>
@@ -1339,7 +1363,7 @@
             <p class="cat-lead">届ける側の知恵と、雨・暑さ・トラブルへの備えです。注文する方にも役立つ内容を集めました。</p>
             <div class="cat-grid">
             <a class="plan-card art-card" href="#article-order-tips" data-article="article-order-tips">
-              <div class="art-thumb"><img src="img-bd137ede1fb2.webp" alt="玄関先で配達バッグを差し出すパパと、置き場所を指さすゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-3fd13f27f1d5.webp" alt="玄関先で配達バッグを差し出すパパと、置き場所を指さすゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">注文のコツ</span></span>
                 <h3>配達員目線の注文のコツ</h3>
@@ -1348,7 +1372,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-trouble" data-article="article-trouble">
-              <div class="art-thumb"><img src="img-f02170271649.webp" alt="玄関先で困った顔でスマホをパパに見せるカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-a0b9c99cb936.webp" alt="玄関先で困った顔でスマホをパパに見せるカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-deal">注文のコツ</span></span>
                 <h3>注文の困りごと解決</h3>
@@ -1357,7 +1381,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-rain" data-article="article-rain">
-              <div class="art-thumb"><img src="img-c4bbb3bd59f0.webp" alt="雨の夕方に帰ってきたパパを、傘とタオルで迎えるゾラくんとカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-5a345009ddb2.webp" alt="雨の夕方に帰ってきたパパを、傘とタオルで迎えるゾラくんとカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の現場</span></span>
                 <h3>雨の日・夜の配達</h3>
@@ -1366,7 +1390,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-season" data-article="article-season">
-              <div class="art-thumb"><img src="img-7d144ad71d6d.webp" alt="屋根の陰で休むパパと、水筒を持つカッキーちゃん、扇子でパパをあおぐゾラくん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-628e2110f18a.webp" alt="屋根の陰で休むパパと、水筒を持つカッキーちゃん、扇子でパパをあおぐゾラくん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の現場</span></span>
                 <h3>暑い日・寒い日の配達対策</h3>
@@ -1375,7 +1399,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-gear" data-article="article-gear">
-              <div class="art-thumb"><img src="img-7ffd287803aa.webp" alt="ヘルメットや配達バッグ、スマホと上着を並べて指さすパパ" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-0e857432f5f1.webp" alt="ヘルメットや配達バッグ、スマホと上着を並べて指さすパパ" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の現場</span></span>
                 <h3>配達の装備入門</h3>
@@ -1384,7 +1408,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-bagcare" data-article="article-bagcare">
-              <div class="art-thumb"><img src="img-fb03f2981e03.webp" alt="開いた配達バッグの中を布で拭くカッキーちゃん" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-a47f91a44909.webp" alt="開いた配達バッグの中を布で拭くカッキーちゃん" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の現場</span></span>
                 <h3>配達バッグの衛生と温度管理</h3>
@@ -1393,7 +1417,7 @@
               </div>
             </a>
             <a class="plan-card art-card" href="#article-apptrouble" data-article="article-apptrouble">
-              <div class="art-thumb"><img src="img-2f4d76d6ddf0.webp" alt="真っ暗なスマホを困った顔で持つカッキーちゃんと、足元の充電ケーブルとモバイルバッテリー" loading="lazy" /></div>
+              <div class="art-thumb"><img src="img-ac4792c37dfc.webp" alt="真っ暗なスマホを困った顔で持つカッキーちゃんと、足元の充電ケーブルとモバイルバッテリー" loading="lazy" /></div>
               <div class="art-body">
                 <span class="plan-top"><span class="tag tag-work">配達の現場</span></span>
                 <h3>アプリとスマホのトラブル対処</h3>
@@ -1412,7 +1436,7 @@
           <div class="sec-head"><span class="stars" aria-hidden="true">★★★</span><h2>書いている人</h2></div>
           <p class="sec-lead">このブログを書いているのは、パパ本人です。家族のことも、あわせてご紹介します。</p>
           <div class="profile-card">
-            <img src="img-feed58da5801.webp" alt="配達の制服姿のパパの立ち姿" />
+            <img src="img-ae0c2585d911.webp" alt="配達の制服姿のパパの立ち姿" />
             <div class="profile-body">
               <h3>パパ</h3>
               <p class="role">書いている人・配達員</p>
@@ -1437,7 +1461,7 @@
           <p class="sec-lead">このブログのご案内役は、このふたり。ティールの制服に、三つ星マークの配達バッグが目印で、パパの記事のあちこちでコメントで登場します。</p>
           <div class="hosts-grid">
             <div class="member">
-              <img src="img-30697556c9e7.webp" alt="配達の制服姿のゾラくんの立ち姿" />
+              <img src="img-bb6e66d65a01.webp" alt="配達の制服姿のゾラくんの立ち姿" />
               <div class="member-body">
                 <h3>ゾラくん</h3>
                 <p class="role">元気いっぱいの進行役</p>
@@ -1445,7 +1469,7 @@
               </div>
             </div>
             <div class="member">
-              <img src="img-55836b8bf43e.webp" alt="配達の制服姿のカッキーちゃんの立ち姿" />
+              <img src="img-26b89011fbae.webp" alt="配達の制服姿のカッキーちゃんの立ち姿" />
               <div class="member-body">
                 <h3>カッキーちゃん</h3>
                 <p class="role">しっかり者のコメンテーター</p>
@@ -1512,7 +1536,7 @@
           <div class="review-list">
             <div class="review-row" data-review-row="article-ue-order">
               <span class="review-num" aria-hidden="true">1</span>
-              <span class="review-thumb"><img src="img-7b08deb96eb8.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-b79323de93f4.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">お得に注文</span><p class="review-title">ウーバーイーツをお得に注文する方法</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-ue-order" data-article="article-ue-order">記事を開く</a>
@@ -1521,7 +1545,7 @@
             </div>
             <div class="review-row" data-review-row="article-rn-order">
               <span class="review-num" aria-hidden="true">2</span>
-              <span class="review-thumb"><img src="img-68d3f72e5250.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-ca4d384ca90a.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">お得に注文</span><p class="review-title">ロケットナウをお得に注文する方法</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-rn-order" data-article="article-rn-order">記事を開く</a>
@@ -1530,7 +1554,7 @@
             </div>
             <div class="review-row" data-review-row="article-rn-about">
               <span class="review-num" aria-hidden="true">3</span>
-              <span class="review-thumb"><img src="img-05cc181c6677.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-8f993ced0ad5.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">お得に注文</span><p class="review-title">ロケットナウってどんなサービス？</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-rn-about" data-article="article-rn-about">記事を開く</a>
@@ -1539,7 +1563,7 @@
             </div>
             <div class="review-row" data-review-row="article-fees">
               <span class="review-num" aria-hidden="true">4</span>
-              <span class="review-thumb"><img src="img-2191aa3f82e6.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-0a409246b170.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">お得に注文</span><p class="review-title">配達料と手数料の仕組み</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-fees" data-article="article-fees">記事を開く</a>
@@ -1548,7 +1572,7 @@
             </div>
             <div class="review-row" data-review-row="article-first-order">
               <span class="review-num" aria-hidden="true">5</span>
-              <span class="review-thumb"><img src="img-4b4825f49a56.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-2c6709554a53.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">お得に注文</span><p class="review-title">初めてのフードデリバリー、注文の流れと準備</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-first-order" data-article="article-first-order">記事を開く</a>
@@ -1563,7 +1587,7 @@
           <div class="review-list">
             <div class="review-row" data-review-row="article-rn-start">
               <span class="review-num" aria-hidden="true">6</span>
-              <span class="review-thumb"><img src="img-dd56b3ff24ef.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-40d4e9be520c.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達員になる・働く</span><p class="review-title">ロケットナウ配達員の始め方と特典</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-rn-start" data-article="article-rn-start">記事を開く</a>
@@ -1572,7 +1596,7 @@
             </div>
             <div class="review-row" data-review-row="article-multi">
               <span class="review-num" aria-hidden="true">7</span>
-              <span class="review-thumb"><img src="img-684717026e09.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-b3450a7a0b0d.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達員になる・働く</span><p class="review-title">配達サービスの掛け持ち入門</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-multi" data-article="article-multi">記事を開く</a>
@@ -1581,7 +1605,7 @@
             </div>
             <div class="review-row" data-review-row="article-day">
               <span class="review-num" aria-hidden="true">8</span>
-              <span class="review-thumb"><img src="img-2f3cce1374b5.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-19bca8d542b5.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達員になる・働く</span><p class="review-title">配達員の1日の流れ</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-day" data-article="article-day">記事を開く</a>
@@ -1590,7 +1614,7 @@
             </div>
             <div class="review-row" data-review-row="article-tax">
               <span class="review-num" aria-hidden="true">9</span>
-              <span class="review-thumb"><img src="img-3d1b802c1bb5.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-47c40273bcbf.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達員になる・働く</span><p class="review-title">確定申告と経費の基本メモ</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-tax" data-article="article-tax">記事を開く</a>
@@ -1605,7 +1629,7 @@
           <div class="review-list">
             <div class="review-row" data-review-row="article-gyro">
               <span class="review-num" aria-hidden="true">10</span>
-              <span class="review-thumb"><img src="img-90860bf920de.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-ff60514c5f0c.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">ジャイロキャノピー</span><p class="review-title">ジャイロキャノピーのメリット・デメリット</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-gyro" data-article="article-gyro">記事を開く</a>
@@ -1614,7 +1638,7 @@
             </div>
             <div class="review-row" data-review-row="article-gyro-cost">
               <span class="review-num" aria-hidden="true">11</span>
-              <span class="review-thumb"><img src="img-eb476b6939c6.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-cd844b18cce0.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">ジャイロキャノピー</span><p class="review-title">ジャイロキャノピーの維持費</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-gyro-cost" data-article="article-gyro-cost">記事を開く</a>
@@ -1623,8 +1647,8 @@
             </div>
             <div class="review-row" data-review-row="article-fuel">
               <span class="review-num" aria-hidden="true">12</span>
-              <span class="review-thumb"><img src="img-b2793049996c.webp" alt="" loading="lazy" /></span>
-              <div class="review-main"><span class="review-cat-label">ジャイロキャノピー</span><p class="review-title">ジャイロキャノピー 燃費7日検証</p></div>
+              <span class="review-thumb"><img src="img-6f039e0b7be2.webp" alt="" loading="lazy" /></span>
+              <div class="review-main"><span class="review-cat-label">ジャイロキャノピー</span><p class="review-title">ジャイロキャノピーの燃費を7日間で検証</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-fuel" data-article="article-fuel">記事を開く</a>
                 <button class="approve-btn" type="button" data-approve-id="article-fuel" aria-pressed="false"><span class="ap-check" aria-hidden="true">✓</span><span class="ap-label">承認する</span></button>
@@ -1632,7 +1656,7 @@
             </div>
             <div class="review-row" data-review-row="article-minicar">
               <span class="review-num" aria-hidden="true">13</span>
-              <span class="review-thumb"><img src="img-391c2a57a4f6.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-a0b8e6a9a4e7.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">ジャイロキャノピー</span><p class="review-title">ジャイロキャノピーのミニカー登録とは</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-minicar" data-article="article-minicar">記事を開く</a>
@@ -1647,7 +1671,7 @@
           <div class="review-list">
             <div class="review-row" data-review-row="article-order-tips">
               <span class="review-num" aria-hidden="true">14</span>
-              <span class="review-thumb"><img src="img-bd137ede1fb2.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-3fd13f27f1d5.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">配達員目線の注文のコツ</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-order-tips" data-article="article-order-tips">記事を開く</a>
@@ -1656,7 +1680,7 @@
             </div>
             <div class="review-row" data-review-row="article-trouble">
               <span class="review-num" aria-hidden="true">15</span>
-              <span class="review-thumb"><img src="img-f02170271649.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-a0b9c99cb936.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">注文の困りごと解決</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-trouble" data-article="article-trouble">記事を開く</a>
@@ -1665,7 +1689,7 @@
             </div>
             <div class="review-row" data-review-row="article-rain">
               <span class="review-num" aria-hidden="true">16</span>
-              <span class="review-thumb"><img src="img-c4bbb3bd59f0.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-5a345009ddb2.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">雨の日・夜の配達</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-rain" data-article="article-rain">記事を開く</a>
@@ -1674,7 +1698,7 @@
             </div>
             <div class="review-row" data-review-row="article-season">
               <span class="review-num" aria-hidden="true">17</span>
-              <span class="review-thumb"><img src="img-7d144ad71d6d.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-628e2110f18a.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">暑い日・寒い日の配達対策</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-season" data-article="article-season">記事を開く</a>
@@ -1683,7 +1707,7 @@
             </div>
             <div class="review-row" data-review-row="article-gear">
               <span class="review-num" aria-hidden="true">18</span>
-              <span class="review-thumb"><img src="img-7ffd287803aa.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-0e857432f5f1.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">配達の装備入門</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-gear" data-article="article-gear">記事を開く</a>
@@ -1692,7 +1716,7 @@
             </div>
             <div class="review-row" data-review-row="article-bagcare">
               <span class="review-num" aria-hidden="true">19</span>
-              <span class="review-thumb"><img src="img-fb03f2981e03.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-a47f91a44909.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">配達バッグの衛生と温度管理</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-bagcare" data-article="article-bagcare">記事を開く</a>
@@ -1701,7 +1725,7 @@
             </div>
             <div class="review-row" data-review-row="article-apptrouble">
               <span class="review-num" aria-hidden="true">20</span>
-              <span class="review-thumb"><img src="img-2f4d76d6ddf0.webp" alt="" loading="lazy" /></span>
+              <span class="review-thumb"><img src="img-ac4792c37dfc.webp" alt="" loading="lazy" /></span>
               <div class="review-main"><span class="review-cat-label">配達の知恵と備え</span><p class="review-title">アプリとスマホのトラブル対処</p></div>
               <div class="review-actions">
                 <a class="open-article-btn" href="#article-apptrouble" data-article="article-apptrouble">記事を開く</a>
@@ -1720,10 +1744,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-13">2026年11月13日</time></div>
-          <h1>ジャイロキャノピーの<span class="mk mk-teal">メリット</span>・<span class="mk mk-coral">デメリット</span></h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-ff60514c5f0c.webp" alt="屋根つき三輪バイクに乗るパパと、歩道で手を振るゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-13">2026年11月13日</time></div>
+              <h1>ジャイロキャノピーの<span class="mk mk-teal">メリット</span>・<span class="mk mk-coral">デメリット</span></h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-90860bf920de.webp" alt="屋根つき三輪バイクに乗るパパと、歩道で手を振るゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">配達の相棒として乗っているジャイロキャノピー。<br />結論から書くと、<span class="mk mk-teal">天気に強く、転びにくくて体が楽</span>な一方で、<span class="mk mk-coral">速さと維持費では割り切りがいる</span>バイクです。</p>
           <p>それでも、<span class="mk mk-amber">毎日の配達で助かる場面</span>のほうが多く感じます。<br />感じているメリットとデメリットをまとめました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
@@ -1739,7 +1767,7 @@
             <figcaption>この記事のまとめ図</figcaption>
             <div class="figure-cols">
               <div class="figure-col good">
-                <img class="figure-img" src="img-e10b7b9aa174.webp" alt="小雨の中、屋根つき三輪バイクのそばで親指を立てるゾラくん" />
+                <img class="figure-img" src="img-12228332307d.webp" alt="小雨の中、屋根つき三輪バイクのそばで親指を立てるゾラくん" />
                 <div class="figure-col-head">
                   <h4>メリット</h4>
                   <span class="figure-who">ゾラくんと見る、良いところ</span>
@@ -1765,7 +1793,7 @@
                 <p class="figure-comment"><strong>ゾラくん：</strong>天気に強くて体が楽。転びにくさも含めて、この4つが毎日の配達では頼りになるね。</p>
               </div>
               <div class="figure-col bad">
-                <img class="figure-img" src="img-77cacaf33fb8.webp" alt="レンチを手に、屋根つき三輪バイクと工具箱を見つめるカッキーちゃん" />
+                <img class="figure-img" src="img-483333af763e.webp" alt="レンチを手に、屋根つき三輪バイクと工具箱を見つめるカッキーちゃん" />
                 <div class="figure-col-head">
                   <h4>デメリット</h4>
                   <span class="figure-who">カッキーちゃんと見る、気になるところ</span>
@@ -1829,10 +1857,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ウーバーイーツをお得に注文する方法 ― <span class="mk mk-teal">紹介コード</span>で初回60%オフ</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-b79323de93f4.webp" alt="玄関先で野菜やパンの入った買い物袋を一緒に持つパパとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ウーバーイーツをお得に注文する方法 ― <span class="mk mk-teal">紹介コード</span>で初回60%オフ</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-7b08deb96eb8.webp" alt="玄関先で野菜やパンの入った買い物袋を一緒に持つパパとカッキーちゃん" /></figure>
           <p class="article-lead">ウーバーイーツを初めて使う方を、僕の紹介コードで招待すると、その方の<span class="mk mk-teal">初回の注文が60%オフ</span>になります。その方が配達注文を終えると、紹介した側の<span class="mk mk-amber">次回の注文も50%オフ</span>。両方お得になる特典です。</p>
           <p>紹介は<span class="mk mk-amber">50人まで</span>できます。特典の中身と、使う前に知っておきたい条件をまとめました。案内は進行役のゾラくん、条件のチェックはコメンテーターのカッキーちゃんです。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
@@ -1845,7 +1877,7 @@
           </div>
           <figure class="article-figure ue-figure">
             <figcaption>注文アプリのホーム画面（イメージ）</figcaption>
-            <img class="ue-photo" src="img-22553f1a2f49.webp" alt="カッキーちゃんのイラストが添えられたフードデリバリーアプリのホーム画面のイメージ。クーポンの案内やカテゴリ、おすすめのお店のカードが並んでいる" />
+            <img class="ue-photo" src="img-869c624dbfc7.webp" alt="カッキーちゃんのイラストが添えられたフードデリバリーアプリのホーム画面のイメージ。クーポンの案内やカテゴリ、おすすめのお店のカードが並んでいる" />
             <p class="ue-fig-note">クーポンや特典の案内は、アプリのホーム画面から確認できます。お店の名前は、種類だけの表記にしたイメージです。</p>
           </figure>
           <h2>特典の中身</h2>
@@ -1882,10 +1914,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ロケットナウ配達員の<span class="mk mk-teal">始め方</span>と<span class="mk mk-amber">特典</span> ― 登録から紹介コードまで</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-40d4e9be520c.webp" alt="ヘルメットとスマホを持つパパと、両手を上げて応援するゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ロケットナウ配達員の<span class="mk mk-teal">始め方</span>と<span class="mk mk-amber">特典</span> ― 登録から紹介コードまで</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-dd56b3ff24ef.webp" alt="ヘルメットとスマホを持つパパと、両手を上げて応援するゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">ロケットナウの配達員は<span class="mk mk-teal">業務委託</span>で、固定シフトはありません。働きたいときにアプリをオンラインにして稼働する形です。お友達紹介では、条件を満たすと紹介した側と友達の<span class="mk mk-amber">両方に1,000円</span>が入ります。ただし、コードの入力は<span class="mk mk-coral">初配達の前が必須</span>です。</p>
           <p>僕も登録を終えたところです。登録手順と必要書類、公式の規約とヘルプで確認した働き方の基本と紹介特典の条件を、1本にまとめました。案内はゾラくん、チェックはカッキーちゃんです。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
@@ -1959,10 +1995,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ロケットナウをお得に注文する方法 ― 招待で初回クーポン<span class="mk mk-amber">最大5,000円分</span></h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-ca4d384ca90a.webp" alt="スマホをのぞき込むパパとゾラくん、頬に手を当てて見守るカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ロケットナウをお得に注文する方法 ― 招待で初回クーポン<span class="mk mk-amber">最大5,000円分</span></h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-68d3f72e5250.webp" alt="スマホをのぞき込むパパとゾラくん、頬に手を当てて見守るカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、ロケットナウで一番お得な始め方は、<span class="mk mk-teal">招待リンク経由の登録</span>です。初回クーポンが<span class="mk mk-amber">最大5,000円分</span>もらえて、通常の登録より1,000円分多くなります。注文で損をしないための確認ポイントとあわせてまとめました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2031,33 +2071,49 @@
       </div>
     </div>
 
-    <!-- ============ 記事：ジャイロキャノピー 燃費7日検証（記録開始） ============ -->
-    <div id="article-fuel" class="article-view" hidden>
+    <!-- ============ 記事：ジャイロキャノピーの燃費を7日間で検証 ============ -->
+    <div id="article-fuel" class="article-view std-article" hidden>
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><span class="plan-status">記録中</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ジャイロキャノピー 燃費7日検証 ― 記録をはじめます</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-6f039e0b7be2.webp" alt="ノートに記録するパパと、メーターを見るゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ジャイロキャノピーの燃費を7日間で検証</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-b2793049996c.webp" alt="ノートに記録するパパと、メーターを見るゾラくんとカッキーちゃん" /></figure>
-          <p>燃費も普通の原付より悪い。メリット・デメリットの記事でそう書きましたが、では実際にどれくらい走るのかは、感覚だけでは分かりません。そこで、数字で確かめるために、7日間の燃費検証を始めることにしました。この記事は結果ではなく、記録の進め方の説明です。結果は、記録が終わってから報告します。</p>
-          <h2>なぜ7日間なのか</h2>
-          <p>1日だけの計測では、その日の配達の件数や天気に左右されてしまいます。忙しい日もあれば配達のない日もあり、雨の日もあります。1週間を通して記録すれば、そうした波も含めた、いつもの使い方の燃費が見えてくるはずです。だから期間は7日間、2026年11月14日（土）から20日（金）までとしました。</p>
-          <h2>記録の進め方</h2>
-          <h3>スタートは満タンとメーター確認</h3>
-          <p>初日の朝、乗る前にメーターの距離を控えて、ガソリンを満タンにします。ここが記録の起点です。最終日にもう一度満タンにして、期間中の総走行距離を、期間中に入れたガソリンの合計量で割ると、7日間の燃費が出ます。給油はなるべく同じスタンドで、満タンのそろえ方を統一します。</p>
-          <h3>毎日記録すること</h3>
-          <p>記録は1日1分、その日の終わりに次の項目をメモします。</p>
+          <p class="article-lead">結論から書きます。配達した7日分で<span class="mk mk-teal">1,218.4km</span>走り、ガソリンは<span class="mk mk-amber">25.78L</span>、燃費は<span class="mk mk-teal">約47.3km/L</span>でした。</p>
+          <div class="gyro-point" aria-label="この記事のポイント">
+            <span class="gyro-point-label">この記事のポイント</span>
+            <ul>
+              <li><span class="pt-num" aria-hidden="true">1</span><span><span class="mk mk-teal">実測燃費は約47.3km/L</span> ― カタログ値54.5km/Lの約87%</span></li>
+              <li><span class="pt-num" aria-hidden="true">2</span><span><span class="mk mk-amber">7日分で1,218.4km走行</span> ― 給油25.78L、ガソリン代4,103円</span></li>
+              <li><span class="pt-num" aria-hidden="true">3</span><span><span class="mk mk-sky">配達286回</span> ― 1日平均約174km</span></li>
+            </ul>
+          </div>
+          <h2>測り方</h2>
+          <p>満タン法です。初日に満タンにして、開始メーターは<span class="mk mk-sky">76,319.8km</span>。給油のたびに満タンに戻し、量と金額を記録しました。最終日は<span class="mk mk-sky">77,538.2km</span>でした。検証は配達に出た7日分で、期間は11月14日から11月24日まで、途中に配達休みの日を含みます。</p>
+          <h2>日ごとの記録</h2>
           <ul>
-            <li>配達をしたかどうか（した／なし）</li>
-            <li>メーターの距離（km）</li>
-            <li>給油した場合は、その量（L）と金額（円）</li>
-            <li>その日の天気</li>
-            <li>一言メモ</li>
+            <li>1日目（11/14）　走行約176.6km　給油3.67L（573円）配達42回</li>
+            <li>2日目（11/15）　走行約152.9km　給油3.16L（499円）配達45回</li>
+            <li>3日目（11/17）　走行169.5km　給油3.40L（537円）配達40回</li>
+            <li>4日目（11/18）　走行192.6km　給油4.19L（662円）配達39回</li>
+            <li>5日目（11/19）　走行150.1km　給油2.96L（462円）配達30回</li>
+            <li>6日目（11/23）　走行185.0km　給油4.22L（705円）配達46回</li>
+            <li>7日目（11/24）　走行191.7km　給油4.18L（665円）配達44回</li>
           </ul>
-          <p>配達のない日も、なしと記録します。走らなかった日も含めてこその、普段どおりの検証です。記録はスマホのメモにその場で残し、給油のレシートも写真に撮っておくと、あとで見返すときに確実です。</p>
-          <h2>結果について</h2>
-          <p>雨の日はカッパを着たり荷物が増えたりして、走り方も変わります。日ごとの数字の違いと天気を並べて見ることで、燃費が悪い日の傾向も見えるかもしれません。検証が終わるまでは、途中の数字は出しません。7日分がそろってから、まとめて計算します。終わったら、合計の数字と一緒に、結果の記事で報告します。数字は盛らず、測ったままを書きます。</p>
+          <p>※1日目の走行距離は目安です。合計はメーター通りです。</p>
+          <h2>合計</h2>
+          <p>走行<span class="mk mk-teal">1,218.4km</span>、給油<span class="mk mk-amber">25.78L</span>、ガソリン代<span class="mk mk-amber">4,103円</span>、配達<span class="mk mk-sky">286回</span>。1日平均では約174km走って、ガソリン代は約586円でした。</p>
+          <h2>カタログ値と比べて</h2>
+          <p>ホンダ ジャイロキャノピー（2BH-TA03）のカタログ燃費は<span class="mk mk-sky">54.5km/L</span>（30km/h定地燃費値）です。今回の実測<span class="mk mk-teal">約47.3km/L</span>は、その約87%でした。一定速度で走るカタログの測り方と違い、配達は信号で止まっては走るの繰り返しです。その条件でカタログ値の9割近く出れば、実用では十分な数字だと思います。</p>
+          <h2 class="h2-sum">まとめ</h2>
+          <div class="gyro-summary">
+            <p>屋根つきで車体の重いジャイロキャノピーでも、配達で使う限り<span class="mk mk-teal">47km/L台</span>は出る、という結果です。燃費の悪さがデメリットと言われる車体ですが、実測すると印象は少し変わります。</p>
+          </div>
         </article>
       </div>
     </div>
@@ -2067,10 +2123,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>初めてのフードデリバリー、<span class="mk mk-teal">注文の流れ</span>と準備</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-2c6709554a53.webp" alt="玄関先で配達バッグを開け、初めての配達を一緒に受け取るパパとゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>初めてのフードデリバリー、<span class="mk mk-teal">注文の流れ</span>と準備</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-4b4825f49a56.webp" alt="玄関先で配達バッグを開け、初めての配達を一緒に受け取るパパとゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、初めての注文は<span class="mk mk-teal">6つの手順</span>で進みます。店舗を選んで、商品をカートに入れて、プロモーションを確認して、合計金額を見て確定する。確定したあとは、配達員とのマッチングが始まります。僕が実際に注文するときの流れを、そのまま書きました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2082,11 +2142,11 @@
           </div>
           <h2>注文の流れ ― 6つの手順</h2>
           <ol class="order-steps">
-            <li><span class="os-num" aria-hidden="true">1</span><div><strong>店舗を選ぶ</strong><span class="os-note">アプリを開いて、頼みたいお店を選びます</span><figure class="step-shot"><img src="img-f0b2bd0297c2.png" alt="注文アプリのホーム画面。お店の一覧が並んでいる（住所と店舗名は加工で消してあります）" loading="lazy" /><figcaption>実際の注文画面です。住所や店舗名などは消してあります</figcaption></figure></div></li>
-            <li><span class="os-num" aria-hidden="true">2</span><div><strong>商品を選んでカートに入れる</strong><span class="os-note">赤い表示がついた商品はお買い得なことが多いので、チェックするとお得です</span><div class="step-shots"><figure class="step-shot"><img src="img-da4284eb86ab.png" alt="商品ページの画面。丼ものの写真と、カートに入れるボタンが見える" loading="lazy" /><figcaption>商品のページです。選んだらカートに入れます</figcaption></figure><figure class="step-shot"><img src="img-d806a8d420ed.png" alt="カートの画面。特典の欄に、赤い表示のお買い得商品が並んでいる（店舗名は加工で消してあります）" loading="lazy" /><figcaption>カートの画面です。赤い表示の商品がお買い得です</figcaption></figure></div></div></li>
+            <li><span class="os-num" aria-hidden="true">1</span><div><strong>店舗を選ぶ</strong><span class="os-note">アプリを開いて、頼みたいお店を選びます</span><figure class="step-shot"><img src="img-f4145ed98f71.png" alt="注文アプリのホーム画面。お店の一覧が並んでいる（住所と店舗名は加工で消してあります）" loading="lazy" /><figcaption>実際の注文画面です。住所や店舗名などは消してあります</figcaption></figure></div></li>
+            <li><span class="os-num" aria-hidden="true">2</span><div><strong>商品を選んでカートに入れる</strong><span class="os-note">赤い表示がついた商品はお買い得なことが多いので、チェックするとお得です</span><div class="step-shots"><figure class="step-shot"><img src="img-e75b1ca2c3e7.png" alt="商品ページの画面。丼ものの写真と、カートに入れるボタンが見える" loading="lazy" /><figcaption>商品のページです。選んだらカートに入れます</figcaption></figure><figure class="step-shot"><img src="img-bc976976f352.png" alt="カートの画面。特典の欄に、赤い表示のお買い得商品が並んでいる（店舗名は加工で消してあります）" loading="lazy" /><figcaption>カートの画面です。赤い表示の商品がお買い得です</figcaption></figure></div></div></li>
             <li><span class="os-num" aria-hidden="true">3</span><div><strong>プロモーションを使う</strong><span class="os-note">使えるプロモーションがあると表示されるので、あれば使います</span></div></li>
-            <li><span class="os-num" aria-hidden="true">4</span><div><strong>クーポンの内容を確認する</strong><span class="os-note">プロモーションを押すと内容や条件が表示されるので、使う前に目を通します</span><figure class="step-shot"><img src="img-3dde3a67d876.png" alt="プロモーションの内容を表示した画面。特典の見出しと条件の文が見える（有効期限と店舗名は加工で消してあります）" loading="lazy" /><figcaption>クーポンの内容です。有効期限と店舗名は消してあります</figcaption></figure></div></li>
-            <li><span class="os-num" aria-hidden="true">5</span><div><strong>合計金額を確認して決済する</strong><span class="os-note">小計や手数料を含めた合計が表示され、その金額で決済されます</span><figure class="step-shot"><img src="img-0ae531902cbc.png" alt="注文内容の最終確認画面。小計やサービス、配達などの手数料の内訳と金額が見える（住所や電話番号、店名などの個人情報は加工で消してあります）" loading="lazy" /><figcaption>最終確認の画面です。金額は表示されていますが、住所や電話番号などの個人情報は消してあります</figcaption></figure></div></li>
+            <li><span class="os-num" aria-hidden="true">4</span><div><strong>クーポンの内容を確認する</strong><span class="os-note">プロモーションを押すと内容や条件が表示されるので、使う前に目を通します</span><figure class="step-shot"><img src="img-1a3f5df83ef2.png" alt="プロモーションの内容を表示した画面。特典の見出しと条件の文が見える（有効期限と店舗名は加工で消してあります）" loading="lazy" /><figcaption>クーポンの内容です。有効期限と店舗名は消してあります</figcaption></figure></div></li>
+            <li><span class="os-num" aria-hidden="true">5</span><div><strong>合計金額を確認して決済する</strong><span class="os-note">小計や手数料を含めた合計が表示され、その金額で決済されます</span><figure class="step-shot"><img src="img-4a2400639997.png" alt="注文内容の最終確認画面。小計やサービス、配達などの手数料の内訳と金額が見える（住所や電話番号、店名などの個人情報は加工で消してあります）" loading="lazy" /><figcaption>最終確認の画面です。金額は表示されていますが、住所や電話番号などの個人情報は消してあります</figcaption></figure></div></li>
             <li><span class="os-num" aria-hidden="true">6</span><div><strong>注文を確定する</strong><span class="os-note">確定ボタンを押すと、配達員とのマッチングが始まります</span></div></li>
           </ol>
           <p>手順ごとに、見ておきたい点を補足します。まず商品選びでは、<span class="mk mk-coral">赤い表示（マーカー）</span>が目印です。割引や特典の対象になっている商品につくことが多く、同じお店で頼むなら、まず赤い表示の商品から見ていくとお得になりやすいです。</p>
@@ -2120,10 +2180,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ジャイロキャノピーの維持費 ― 金額より先に知りたい、<span class="mk mk-coral">高くつく理由</span></h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-cd844b18cce0.webp" alt="工具箱を持つカッキーちゃんと、三輪バイクのタイヤを点検するパパ" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ジャイロキャノピーの維持費 ― 金額より先に知りたい、<span class="mk mk-coral">高くつく理由</span></h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-eb476b6939c6.webp" alt="工具箱を持つカッキーちゃんと、三輪バイクのタイヤを点検するパパ" /></figure>
           <p class="article-lead">結論から書くと、ジャイロキャノピーの維持費は、原付の中では<span class="mk mk-coral">高め</span>です。理由は、重い車体と、診てくれる店の少なさにあります。この記事では金額は書きません。かかる費用の項目と、高くつきやすい理由だけを整理しました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2146,7 +2210,7 @@
           <p>走るほど増えるものと、乗らなくてもかかるものが混ざっています。保険と税金は、持っているだけで発生する費用です。逆にガソリンやタイヤは、配達の距離に比例して伸びていきます。</p>
           <h2 class="h2-bad">ジャイロで高くつきやすい理由</h2>
           <h3>車体が重く、燃費に響く</h3>
-          <p>ジャイロキャノピーは車体が非常に重く、その分ガソリンの減りは早めです。燃費の詳しい数字は、いま7日間検証で記録中。結果が出たら、実測の数字をこの記事にも追記します。</p>
+          <p>ジャイロキャノピーは車体が非常に重く、その分ガソリンの減りは早めです。燃費は実測して、別の記事にまとめています。</p>
           <h3>整備を受けてくれる店が少ない</h3>
           <p>修理や整備を受けてくれない店が多く、<span class="mk mk-coral">専門店頼り</span>になりがちです。選択肢が少ないと、費用も工期も店次第になりやすい面があります。</p>
           <p>ミニカー登録をした改造車は、純正ディーラーに断られることもあります。乗り始める前に、<span class="mk mk-amber">近くに診てもらえる店があるか</span>を確認しておくと安心です。</p>
@@ -2166,10 +2230,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>配達員目線の注文のコツ ― 届ける側だから分かる、<span class="mk mk-teal">小さな工夫</span></h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-3fd13f27f1d5.webp" alt="玄関先で配達バッグを差し出すパパと、置き場所を指さすゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>配達員目線の注文のコツ ― 届ける側だから分かる、<span class="mk mk-teal">小さな工夫</span></h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-bd137ede1fb2.webp" alt="玄関先で配達バッグを差し出すパパと、置き場所を指さすゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、注文がスムーズに届くかどうかは、<span class="mk mk-teal">伝言と住所の書き方</span>でかなり変わります。配達する側の目線で、頼むときに効く工夫をまとめました。どれも、注文画面で30秒あればできることです。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2210,10 +2278,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>雨の日・夜の配達 ― 屋根がある日の走り方と、暗い時間の注意</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-5a345009ddb2.webp" alt="雨の夕方に帰ってきたパパを、傘とタオルで迎えるゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>雨の日・夜の配達 ― 屋根がある日の走り方と、暗い時間の注意</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-c4bbb3bd59f0.webp" alt="雨の夕方に帰ってきたパパを、傘とタオルで迎えるゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、ジャイロキャノピーでの雨の配達は、<span class="mk mk-teal">小雨ならかなり快適</span>です。ただし防水のバイクではありません。屋根が助けてくれる範囲と、濡れる場面の線引きを書きます。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2261,10 +2333,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ロケットナウってどんなサービス？ ― 注文する側と配達する側、両方の入口</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-8f993ced0ad5.webp" alt="のれんの食堂の前に立つパパとゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ロケットナウってどんなサービス？ ― 注文する側と配達する側、両方の入口</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-05cc181c6677.webp" alt="のれんの食堂の前に立つパパとゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">ロケットナウは、料理などを注文できるフードデリバリーのサービスです。運営は<span class="mk mk-teal">CP One Japan（クーパン系）</span>。特徴は、<span class="mk mk-amber">配達料とサービス料が常時0円</span>という打ち出しと、<span class="mk mk-teal">店舗と同価格</span>のお店があることです（全店舗ではありません）。なお、店舗と同価格の取り組みは、ウーバーイーツにもあります。注文する側と配達する側、両方の入口を整理しました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2297,10 +2373,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>配達サービスの掛け持ち入門 ― 登録は複数、動くのは条件の合う方</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-b3450a7a0b0d.webp" alt="バッグを見比べるパパと、スマホを持つゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>配達サービスの掛け持ち入門 ― 登録は複数、動くのは条件の合う方</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-684717026e09.webp" alt="バッグを見比べるパパと、スマホを持つゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、掛け持ちの考え方はシンプルです。<span class="mk mk-teal">複数のサービスに登録</span>しておき、その日に<span class="mk mk-amber">条件の合う方で動く</span>。僕はウーバーイーツで稼働中で、ロケットナウは登録済みでこれから始める段階です。その前提で、始め方の考え方をまとめました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2333,10 +2413,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>暑い日・寒い日の配達対策 ― 屋根つき車体と、季節の工夫</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-628e2110f18a.webp" alt="屋根の陰で休むパパと、水筒を持つカッキーちゃん、扇子でパパをあおぐゾラくん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>暑い日・寒い日の配達対策 ― 屋根つき車体と、季節の工夫</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-7d144ad71d6d.webp" alt="屋根の陰で休むパパと、水筒を持つカッキーちゃん、扇子でパパをあおぐゾラくん" /></figure>
           <p class="article-lead">結論から書くと、ジャイロキャノピーは<span class="mk mk-amber">暑い日こそ屋根の恩恵が大きい</span>バイクです。直射日光を屋根が受け止めてくれます。寒い日は、屋根とスクリーンが<span class="mk mk-sky">風よけ</span>になります。そのうえで、季節ごとの一般的な対策をまとめました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2369,10 +2453,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>確定申告と経費の基本メモ ― 来年の事業化に向けた準備</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-47c40273bcbf.webp" alt="レシートと電卓で整理するパパと、手伝うゾラくんとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>確定申告と経費の基本メモ ― 来年の事業化に向けた準備</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-3d1b802c1bb5.webp" alt="レシートと電卓で整理するパパと、手伝うゾラくんとカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、業務委託の配達員は、<span class="mk mk-teal">日々の記録がすべての土台</span>です。売上と経費をその日のうちに残しておけば、申告の時期に慌てません。この記事は一般的な考え方のメモで、僕個人の金額や申告結果は書いていません。来年の事業化に向けて、準備中の位置づけです。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2405,10 +2493,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>注文の困りごと解決 ― 置き配・遅れ・商品違いの考え方</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-a0b9c99cb936.webp" alt="玄関先で困った顔でスマホをパパに見せるカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>注文の困りごと解決 ― 置き配・遅れ・商品違いの考え方</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-f02170271649.webp" alt="玄関先で困った顔でスマホをパパに見せるカッキーちゃん" /></figure>
           <p class="article-lead">注文の困りごとは、大きく三つに分かれます。<span class="mk mk-teal">置き配の使い方</span>、<span class="mk mk-sky">遅い・届かないとき</span>、<span class="mk mk-amber">商品が違う・足りないとき</span>です。サービスごとの細かな手順はアプリ内の案内が確実なので、ここでは共通の考え方をまとめました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2441,10 +2533,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>配達の装備入門 ― スマホまわりとバッグ、雨具の考え方</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-0e857432f5f1.webp" alt="ヘルメットや配達バッグ、スマホと上着を並べて指さすパパ" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>配達の装備入門 ― スマホまわりとバッグ、雨具の考え方</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-7ffd287803aa.webp" alt="ヘルメットや配達バッグ、スマホと上着を並べて指さすパパ" /></figure>
           <p class="article-lead">結論から書くと、装備で大事なのは<span class="mk mk-teal">スマホの固定と電源</span>、そして<span class="mk mk-amber">荷物を守るバッグと雨具</span>です。この記事は一般的な考え方の入門編です。僕が使っている実物の製品名や価格は書かず、実物編は追記予定として分けました。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2478,10 +2574,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>ジャイロキャノピーのミニカー登録とは ― 制度の一般論メモ</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-a0b8e6a9a4e7.webp" alt="三輪バイクの無地のナンバープレートを指さすパパと、そばで見守るゾラくん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>ジャイロキャノピーのミニカー登録とは ― 制度の一般論メモ</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-391c2a57a4f6.webp" alt="三輪バイクの無地のナンバープレートを指さすパパと、そばで見守るゾラくん" /></figure>
           <p class="article-lead">ミニカー登録は、50ccの三輪バイクを<span class="mk mk-teal">道路交通法上は普通自動車</span>として登録し直す制度です。登録すると原付の30km制限と二段階右折、ヘルメット義務からは外れます。一方で、運転には<span class="mk mk-coral">普通自動車免許</span>が必要になり、違反の反則金と放置違反金は普通車の金額になります。この記事は制度の一般論で、僕の車両が登録済みかどうかは書きません。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2544,7 +2644,7 @@
             </div>
             <p class="mc-figure-note">法定速度は、標識で指定された速度があればそちらが優先します。なお2026年9月からは、中央線などのない生活道路では自動車の法定速度も30km/hになりました。乗車定員はどちらも1人のままです。</p>
           </figure>
-          <figure class="eyecatch-photo"><img src="img-671921edbf1d.webp" alt="住宅街の道路を、流れに合わせて落ち着いて走るパパの屋根つき三輪バイク" loading="lazy" /></figure>
+          <figure class="eyecatch-photo"><img src="img-83ada3e3eda2.webp" alt="住宅街の道路を、流れに合わせて落ち着いて走るパパの屋根つき三輪バイク" loading="lazy" /></figure>
           <p><a class="detail-link" href="#article-gyro" data-article="article-gyro">ジャイロキャノピーのメリット・デメリットを読む →</a></p>
           <h2 class="h2-warn">交通違反をしたら ― 反則金は普通車の金額</h2>
           <p>警視庁の反則金一覧表では、ミニカーは「普通車」に含まれると明記されています。違反点数は違反の内容と程度で決まるため、同じ違反なら原付でもミニカーでも点数は同じです。変わるのは金額のほうで、速度超過（一般道路）の例は次のとおりです。</p>
@@ -2587,7 +2687,7 @@
           <p>整備の受け入れ先も先に確かめたい点です。ミニカー登録車は、純正ディーラーを含め、整備を断られる店があります。ジャイロキャノピーは現在、新車の販売がありませんので、乗っているのは中古車が中心です。整備を受けてくれる店が限られるぶん、登録の前に、診てもらえる専門店を確保しておくのが順番です。</p>
           <p>改造と登録は必ずセットで行います。改造していないのに輪距が変わったと申告する、いわゆる書類だけの変更は、地方税法に基づいて罰せられます。反対に、輪距を広げたまま原付の登録で走るのも、車両の区分と登録が食い違う状態です。</p>
           <p>保険では、ファミリーバイク特約がミニカーに使えるかどうかが保険会社で分かれます。対象と案内している会社もありますが、自分の契約先への確認が要ります。</p>
-          <figure class="eyecatch-photo"><img src="img-826ace0148b6.webp" alt="窓口で無地の冊子を開いて手続きを確認するパパと、指さして見守るカッキーちゃん。窓の外には三輪バイク" loading="lazy" /></figure>
+          <figure class="eyecatch-photo"><img src="img-5efa37b0ab90.webp" alt="窓口で無地の冊子を開いて手続きを確認するパパと、指さして見守るカッキーちゃん。窓の外には三輪バイク" loading="lazy" /></figure>
           <p class="duo-comment kakki"><strong>カッキーちゃん：</strong>速く走れる代わりに、金額もルールも自動車寄りになるんだね。登録の前に、免許と整備先と保険の確認だね。</p>
           <h2 class="h2-sum">まとめ</h2>
           <div class="gyro-summary">
@@ -2604,10 +2704,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>配達員の1日の流れ ― オンラインから帰宅まで</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-19bca8d542b5.webp" alt="朝の玄関先で手を振って出発するパパ" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>配達員の1日の流れ ― オンラインから帰宅まで</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-2f3cce1374b5.webp" alt="朝の玄関先で手を振って出発するパパ" /></figure>
           <p class="article-lead">僕の稼働は<span class="mk mk-teal">週に3〜4回</span>で、時間は決めず、<span class="mk mk-amber">好きなときにオンライン</span>にする形です。その前提で、配達の日の一般的な流れを、出発前から帰宅まで順に書きました。収益や件数の数字は書きません。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2640,10 +2744,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>配達料と手数料の仕組み ― 注文金額の内訳の見方</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-0a409246b170.webp" alt="テーブルの模型のハンバーガーと無地のコイン、ミニ配達バッグを指さすパパとカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>配達料と手数料の仕組み ― 注文金額の内訳の見方</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-2191aa3f82e6.webp" alt="テーブルの模型のハンバーガーと無地のコイン、ミニ配達バッグを指さすパパとカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、注文金額は<span class="mk mk-teal">商品代だけでは決まりません</span>。配達料やサービス料が加わる形が基本です。内訳の見方を一般論でまとめました。サービスごとの断定はしませんが、ロケットナウは<span class="mk mk-amber">配達料・サービス料が常時0円</span>の打ち出しがある点だけ、確認済みとして書きます。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2675,10 +2783,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>配達バッグの衛生と温度管理 ― 届ける前の基本チェック</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-a47f91a44909.webp" alt="開いた配達バッグの中を布で拭くカッキーちゃん" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>配達バッグの衛生と温度管理 ― 届ける前の基本チェック</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-fb03f2981e03.webp" alt="開いた配達バッグの中を布で拭くカッキーちゃん" /></figure>
           <p class="article-lead">結論から書くと、バッグの管理は<span class="mk mk-teal">清潔さと温度</span>の二点です。食べ物を運ぶ仕事なので、バッグの中を清潔に保ち、温かいものと冷たいものを分けて運ぶのが基本。この記事は一般的な考え方のチェックリストで、僕の実物の詳細は装備入門の実物編で追記予定です。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2711,10 +2823,14 @@
       <div class="wrap">
         <a class="back-link back-home" href="#">← トップへ戻る</a>
         <article class="article-body">
-          <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
-          <h1>アプリとスマホのトラブル対処 ― 配達中に止まらないために</h1>
+          <div class="article-head">
+            <figure class="eyecatch-thumb"><img src="img-ac4792c37dfc.webp" alt="真っ暗なスマホを困った顔で持つカッキーちゃんと、足元の充電ケーブルとモバイルバッテリー" /></figure>
+            <div class="article-head-main">
+              <div class="article-meta"><span class="pr-badge">PR</span><time datetime="2026-11-14">2026年11月14日</time></div>
+              <h1>アプリとスマホのトラブル対処 ― 配達中に止まらないために</h1>
+            </div>
+          </div>
           <p class="article-pr">当ブログの記事にはPR（広告）が含まれます。<br />リンク先でご購入いただくと、運営者に紹介料が入る場合があります。</p>
-          <figure class="eyecatch-photo"><img src="img-2f4d76d6ddf0.webp" alt="真っ暗なスマホを困った顔で持つカッキーちゃんと、足元の充電ケーブルとモバイルバッテリー" /></figure>
           <p class="article-lead">配達中のスマホトラブルは、<span class="mk mk-teal">焦らず順番に対処</span>するのが基本です。位置情報がずれる、アプリが固まる、通信が不安定になる。よくある場面ごとに、一般的な対処の順番をまとめました。具体的な手順は、各アプリの案内が確実です。</p>
           <div class="gyro-point" aria-label="この記事のポイント">
             <span class="gyro-point-label">この記事のポイント</span>
@@ -2750,12 +2866,12 @@
 
     <script>
       var GALLERY = [
-        { src: "img-7f65acde3c2d.webp", cap: "商店街で受け取り", alt: "商店街で品物を受け取る二人" },
-        { src: "img-dd6ebb9f01fa.webp", cap: "台所でできたてをチェック", alt: "台所で料理をする二人" },
-        { src: "img-2a53fdc1b3cf.webp", cap: "玄関先でお届け", alt: "玄関先でお届け物を受け渡す二人" },
-        { src: "img-940f30bb22a8.webp", cap: "雨の日の配達", alt: "雨の中で傘をさして配達する二人" },
-        { src: "img-c2c8ea3a919e.webp", cap: "配達のあとのごはん", alt: "食卓で手を合わせる二人" },
-        { src: "img-a12603b4f3f1.webp", cap: "ひと仕事終えて、ひと休み", alt: "ソファでお昼寝をする二人" }
+        { src: "img-4b9efe24ddd4.webp", cap: "商店街で受け取り", alt: "商店街で品物を受け取る二人" },
+        { src: "img-7a24c5cf3815.webp", cap: "台所でできたてをチェック", alt: "台所で料理をする二人" },
+        { src: "img-9fe67c734c56.webp", cap: "玄関先でお届け", alt: "玄関先でお届け物を受け渡す二人" },
+        { src: "img-aef494c8fdea.webp", cap: "雨の日の配達", alt: "雨の中で傘をさして配達する二人" },
+        { src: "img-a14bfe161956.webp", cap: "配達のあとのごはん", alt: "食卓で手を合わせる二人" },
+        { src: "img-fef7f3e8acb4.webp", cap: "ひと仕事終えて、ひと休み", alt: "ソファでお昼寝をする二人" }
       ];
 
       function esc(s) {
